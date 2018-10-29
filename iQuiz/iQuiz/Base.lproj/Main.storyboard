@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQS-hb-HVb">
+                                <rect key="frame" x="64" y="0.0" width="768" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="T7s-IT-6kl"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Settings" width="136.5" id="ytq-x4-AE3">
+                                        <connections>
+                                            <action selector="btnSettings:" destination="BYZ-38-t0r" id="04T-P8-Tx1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ls5-Pk-giW">
+                                <rect key="frame" x="64" y="32" width="768" height="362"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0ey-qh-5n3"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="trailing" secondItem="ls5-Pk-giW" secondAttribute="trailing" id="0na-Fw-b1K"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="13l-Zc-2hd"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="6Jj-ki-Olh"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="leading" secondItem="ls5-Pk-giW" secondAttribute="leading" id="9KH-BP-Nc8"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="leading" secondItem="ls5-Pk-giW" secondAttribute="leading" id="A5n-u1-n56"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FoQ-Te-Q4L"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="trailing" secondItem="ls5-Pk-giW" secondAttribute="trailing" id="Ght-zX-oun"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="bottom" secondItem="ls5-Pk-giW" secondAttribute="top" id="HMG-66-fwR"/>
+                            <constraint firstAttribute="bottom" secondItem="ls5-Pk-giW" secondAttribute="bottom" constant="20" symbolic="YES" id="KCG-j6-6D9"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="PoX-Op-30J"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="XwB-OY-2wU"/>
+                            <constraint firstAttribute="bottom" secondItem="ls5-Pk-giW" secondAttribute="bottom" constant="20" symbolic="YES" id="bPt-Wm-63l"/>
+                            <constraint firstItem="aQS-hb-HVb" firstAttribute="bottom" secondItem="ls5-Pk-giW" secondAttribute="top" id="iwA-eZ-u19"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0ey-qh-5n3"/>
+                                <exclude reference="6Jj-ki-Olh"/>
+                                <exclude reference="A5n-u1-n56"/>
+                                <exclude reference="Ght-zX-oun"/>
+                                <exclude reference="HMG-66-fwR"/>
+                                <exclude reference="PoX-Op-30J"/>
+                                <exclude reference="KCG-j6-6D9"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="0ey-qh-5n3"/>
+                                <include reference="6Jj-ki-Olh"/>
+                                <include reference="A5n-u1-n56"/>
+                                <include reference="Ght-zX-oun"/>
+                                <include reference="HMG-66-fwR"/>
+                                <include reference="PoX-Op-30J"/>
+                                <include reference="KCG-j6-6D9"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ls5-Pk-giW" id="EYa-cI-J5K"/>
+                        <outletCollection property="tableView" destination="ls5-Pk-giW" collectionClass="NSMutableArray" id="Yqj-Af-Ybb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.58035714285714" y="130.43478260869566"/>
+        </scene>
+    </scenes>
+</document>
