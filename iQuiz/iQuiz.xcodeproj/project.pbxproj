@@ -107,7 +107,7 @@
 				A46D052F2186706A00DEA576 /* AppDelegate.swift */,
 				A46D05312186706A00DEA576 /* ViewController.swift */,
 				A46D05362186706C00DEA576 /* Assets.xcassets */,
-				A4E96AEC2187AEE50075B669 /* Data */,
+				A4E96AEC2187AEE50075B669 /* DataModel */,
 				A46D05382186706C00DEA576 /* LaunchScreen.storyboard */,
 				A46D05332186706A00DEA576 /* Main.storyboard */,
 			);
@@ -132,14 +132,14 @@
 			path = iQuizUITests;
 			sourceTree = "<group>";
 		};
-		A4E96AEC2187AEE50075B669 /* Data */ = {
+		A4E96AEC2187AEE50075B669 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
 				A4E96AE52187AD8C0075B669 /* Data.swift */,
 				A4E96AE72187AE0A0075B669 /* DataRepository.swift */,
 				A4E96AE92187AE2A0075B669 /* DataSource.swift */,
 			);
-			path = Data;
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

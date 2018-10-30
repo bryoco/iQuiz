@@ -9,12 +9,12 @@
 import Foundation
 
 class DataRepository {
+
+    private static let theInstance = DataRepository()
     
     static func instance() -> DataRepository {
         return theInstance
     }
-    
-    private static let theInstance = DataRepository()
     
     func getData() -> Data? {
         return Data()

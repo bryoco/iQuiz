@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class Data {
-    // Data source
     let cat : [String] = ["Informatics", "Computer Science and Engineering", "Japanese"]
     let catDesc : [String] = ["Major where you get lots of love",
                               "Major where you get little love",
