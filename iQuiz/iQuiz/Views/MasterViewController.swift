@@ -8,20 +8,32 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class MasterViewController: UIViewController, UITableViewDelegate {
     
     let dataSrc = DataSource(data: DataRepository.instance().getData()!)
+//    let qaSrc = 
     
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
-        let cat = self.dataSrc.data.cat[row]
-        let alert = UIAlertController(title: "You selected",
-                                      message: cat, preferredStyle: .alert)
+//        let cat = self.dataSrc.data.cat[row]
+//        let alert = UIAlertController(title: "You selected",
+//                                      message: cat, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+        
+        let catID : Int = row
+        let questionVC = self.storyboard?.instantiateViewController(withIdentifier: "question") as! QuestionViewController
+        
+        questionVC.questions = Q().getQ(catID)
+        questionVC.answers = A().getA(catID)
+        
+        questionVC.i = 0
+        questionVC.correct = 0
+        questionVC.selected = -1
+        
     }
     
     @IBAction func btnSettings(_ sender: Any) {
