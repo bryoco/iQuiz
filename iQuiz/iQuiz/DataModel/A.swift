@@ -12,14 +12,14 @@ class A {
     
     let answers : [[[String]]] = [
             // INFO
-            [["Anind Dey", "Somebody", "Some other body", "Some some guy"],
-             ["Placeholder", "Another placeholder", "Placeholder placeholder", "Yet another placeholder"]],
+            [["Anind Dey", "Joel Ross", "Ted Neward", "Dowell Eugenio"],
+             ["Information School", "Intellectual School", "Intelligence School", "Infrastructure School"]],
             // CSE
-            [["CSE", "Somebody", "Some other body", "Some some guy"],
-             ["Placeholder", "Another placeholder", "Placeholder placeholder", "Yet another placeholder"]],
+            [["Computer Science and Engineering", "Commando Superb Explosion", "Cremation Specialized Entertainment", "Council of Space Entities"],
+             ["The Bill & Melinda Gates Foundation", "Amazon", "Microsoft", "Secret Federal Government Agency"]],
             // JAPAN
-            [["Japan", "Somebody", "Some other body", "Some some guy"],
-             ["Placeholder", "Another placeholder", "Placeholder placeholder", "Yet another placeholder"]]]
+            [["Konichiwa", "Nihao", "Annyeonghaseyo", "Salve"],
+             ["Linguistics", "Weeabooism", "Culture", "Nihilism"]]]
     
     func getA(_ catID : Int) -> [[String]]? {
         if catID == 0 {

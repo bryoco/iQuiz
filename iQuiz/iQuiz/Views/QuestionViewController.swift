@@ -65,6 +65,7 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    // TODO: refactor this
     @IBAction func btnChoice1Pressed(_ sender: Any) {
         self.selected = 0
         self.btnChoice1.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
@@ -118,22 +119,22 @@ class QuestionViewController: UIViewController {
         }
         
         // Filling data
+        // Filling question
         self.lblQuestion.text = questions![i]
-        self.btnChoice1.setTitle(answers![i][0], for: .normal)
-        self.btnChoice2.setTitle(answers![i][1], for: .normal)
-        self.btnChoice3.setTitle(answers![i][2], for: .normal)
-        self.btnChoice4.setTitle(answers![i][3], for: .normal)
-
-        // Changing text
-//        var n = 0
-//        for view in self.btnsChoice as [UIView] {
-//            if let btn = view. as? UIButton {
-//                btn.setTitle(answers![i][n], for: .normal)
-//                n += 1
-//            }
-//        }
+        // Filling answers
+        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
+        var n = 0
+        for btn in btns {
+            btn!.setTitle(answers![i][n], for: .normal)
+            n += 1
+        }
+//        self.btnChoice1.setTitle(answers![i][0], for: .normal)
+//        self.btnChoice2.setTitle(answers![i][1], for: .normal)
+//        self.btnChoice3.setTitle(answers![i][2], for: .normal)
+//        self.btnChoice4.setTitle(answers![i][3], for: .normal)
         
-        // TODO: hmmmmmmm
+        // TODO: Randomize answer orders
+        // create new UIStackView then inject?
 //        self.btnsChoice.randomElement()
     }
 }

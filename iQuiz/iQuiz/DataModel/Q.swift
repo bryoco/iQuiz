@@ -13,9 +13,9 @@ class Q {
         // INFO
         ["Who is the current iSchool dean?", "What is the full name of the iSchool?"],
         // CSE
-        ["CSE", "Something CSE"],
+        ["What is the full name of the CSE department", "Who is the number one donor of the CSE department?"],
         // JAPAN
-        ["Japanese", "Something Japanese"]]
+        ["How do you say \"Hello\" in Japanese?", "Which track is offered in the department?"]]
     
     
     func getQ(_ catID : Int) -> [String]? {
