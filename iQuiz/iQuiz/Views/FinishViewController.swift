@@ -24,18 +24,16 @@ class FinishViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSLog("FinishVC did load!")
-        
         let stats: Float = Float(correct) / Float(numQuestions)
         
         if stats > 0.8 {
             self.lblComment.text = "You did well!"
             self.lblComment.textColor = UIColor.green
         } else if stats > 0.5 {
-            self.lblComment.text = "You did fine."
+            self.lblComment.text = "You did eh."
             self.lblComment.textColor = UIColor.yellow
         } else {
-            self.lblComment.text = "You are a disappointment of your major."
+            self.lblComment.text = "You are a disappointment to your major."
             self.lblComment.textColor = UIColor.red
         }
         

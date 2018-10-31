@@ -11,11 +11,11 @@ import UIKit
 class QuestionViewController: UIViewController {
 
     @IBOutlet weak var lblQuestion: UILabel!
-    @IBOutlet var btnsChoice: [UIStackView]!
     @IBOutlet weak var btnChoice1: UIButton!
     @IBOutlet weak var btnChoice2: UIButton!
     @IBOutlet weak var btnChoice3: UIButton!
     @IBOutlet weak var btnChoice4: UIButton!
+    @IBOutlet var btnsChoice: [UIStackView]!
     
     var questions: [String]?
     var answers: [[String]]?
@@ -46,15 +46,16 @@ class QuestionViewController: UIViewController {
             
             let answerVC = self.storyboard?.instantiateViewController(withIdentifier: "answer") as! AnswerViewController
             
+            // displaying data
             answerVC.question = self.questions![i]
             answerVC.answer = self.answers![i][0]
             
+            // carried-over data
             answerVC.questions = self.questions!
             answerVC.answers = self.answers!
             answerVC.i = self.i + 1
             answerVC.isCorrect = self.isCorrect
             
-            // TODO: Somehow randomize choices
             if self.isCorrect {
                 answerVC.correct = self.correct! + 1
             } else {
@@ -98,6 +99,22 @@ class QuestionViewController: UIViewController {
         self.btnChoice3.setTitleColor(UIColor.lightGray, for: .normal)
     }
     
+    // Swipe handler
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            switch sender.direction {
+            case .left:
+                self.btnContinue(self)
+            case .right:
+                self.btnBack(self)
+            default:
+                break
+            }
+            
+        }
+    }
+    
+    // TODO: randomize questions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,9 +135,17 @@ class QuestionViewController: UIViewController {
             assert(false, "question count incorrect")
         }
         
-        // Filling data
+        // Adding swipes
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        leftSwipe.direction = .left
+        self.view.addGestureRecognizer(leftSwipe)
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        self.view.addGestureRecognizer(rightSwipe)
+        
         // Filling question
         self.lblQuestion.text = questions![i]
+        
         // Filling answers
         let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
         var n = 0
@@ -128,13 +153,5 @@ class QuestionViewController: UIViewController {
             btn!.setTitle(answers![i][n], for: .normal)
             n += 1
         }
-//        self.btnChoice1.setTitle(answers![i][0], for: .normal)
-//        self.btnChoice2.setTitle(answers![i][1], for: .normal)
-//        self.btnChoice3.setTitle(answers![i][2], for: .normal)
-//        self.btnChoice4.setTitle(answers![i][3], for: .normal)
-        
-        // TODO: Randomize answer orders
-        // create new UIStackView then inject?
-//        self.btnsChoice.randomElement()
     }
 }

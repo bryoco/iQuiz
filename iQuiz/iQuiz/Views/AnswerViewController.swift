@@ -57,8 +57,6 @@ class AnswerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSLog("AnswerVC did load!")
-        
         if self.isCorrect {
             self.lblIsCorrect.text = "Correct!"
             self.lblIsCorrect.textColor = UIColor.green
