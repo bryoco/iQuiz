@@ -9,22 +9,36 @@
 import UIKit
 
 class FinishViewController: UIViewController {
+    
+    @IBOutlet weak var lblComment: UILabel!
+    @IBOutlet weak var lblStats: UILabel!
+    
+    var correct: Int!
+    var numQuestions: Int!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBAction func btnRestartPressed(_ sender: Any) {
+        let master = self.storyboard?.instantiateViewController(withIdentifier: "master")
+        self.present(master!, animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        NSLog("FinishVC did load!")
+        
+        let stats: Float = Float(correct) / Float(numQuestions)
+        
+        if stats > 0.8 {
+            self.lblComment.text = "You did well!"
+            self.lblComment.textColor = UIColor.green
+        } else if stats > 0.5 {
+            self.lblComment.text = "You did fine."
+            self.lblComment.textColor = UIColor.yellow
+        } else {
+            self.lblComment.text = "You are a disappointment of your major."
+            self.lblComment.textColor = UIColor.red
+        }
+        
+        self.lblStats.text = "Out of \(String(describing: self.numQuestions!)), you got \(String(describing: self.correct!)) right."
     }
-    */
-
 }

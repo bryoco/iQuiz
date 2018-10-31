@@ -10,21 +10,74 @@ import UIKit
 
 class AnswerViewController: UIViewController {
 
+    @IBOutlet weak var lblQuestion: UILabel!
+    @IBOutlet weak var lblAnswer: UILabel!
+    @IBOutlet weak var lblIsCorrect: UILabel!
+    
+    // Data for this VC
+    var question: String!
+    var answer: String!
+    var isCorrect: Bool!
+    
+    // Data carried over to next VC
+    var questions: [String]!
+    var answers: [[String]]!
+    var i: Int?
+    var correct: Int!
+    
+    @IBAction func btnContinuePressed(_ sender: Any) {
+        
+        let j = i! + 0
+        
+        if j >= questions!.count {
+            
+            let finishVC = self.storyboard?.instantiateViewController(withIdentifier: "finish") as! FinishViewController
+            
+            finishVC.correct = self.correct
+            finishVC.numQuestions = self.questions.count
+            
+            self.present(finishVC, animated: true, completion: nil)
+            
+        } else {
+            
+            // Create initializer for questionVC, pass in params and create VC
+            let questionVC = self.storyboard?.instantiateViewController(withIdentifier: "question") as! QuestionViewController
+            
+            questionVC.questions = self.questions
+            questionVC.answers = self.answers
+            questionVC.i = self.i
+            questionVC.correct = self.correct
+            questionVC.selected = -1
+            
+            self.present(questionVC, animated: true, completion: nil)
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        NSLog("AnswerVC did load!")
+        
+        if self.isCorrect {
+            self.lblIsCorrect.text = "Correct!"
+            self.lblIsCorrect.textColor = UIColor.green
+        } else {
+            self.lblIsCorrect.text = "Wrong!"
+            self.lblIsCorrect.textColor = UIColor.red
+        }
+        
+        self.lblQuestion.text = self.question
+        self.lblAnswer.text = self.answer
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //            let questionVC = self.storyboard?.instantiateViewController(withIdentifier: "question") as! QuestionViewController
+    //
+    //            questionVC.questions = self.questions
+    //            questionVC.answers = self.answers
+    //            questionVC.i = self.i + 1
+    //            questionVC.correct = self.correct
+    //            questionVC.selected = -1
 
 }

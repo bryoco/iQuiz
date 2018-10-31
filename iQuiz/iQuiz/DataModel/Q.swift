@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Q {
+class Q {
     let questions : [[String]] = [
         // INFO
         ["Who is the current iSchool dean?", "What is the full name of the iSchool?"],

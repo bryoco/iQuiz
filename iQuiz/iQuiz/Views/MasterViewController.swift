@@ -10,10 +10,9 @@ import UIKit
 
 class MasterViewController: UIViewController, UITableViewDelegate {
     
-    let dataSrc = DataSource(data: DataRepository.instance().getData()!)
-//    let qaSrc = 
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    let dataSrc = DataSource(data: DataRepository.instance().getData()!)
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
@@ -29,10 +28,11 @@ class MasterViewController: UIViewController, UITableViewDelegate {
         
         questionVC.questions = Q().getQ(catID)
         questionVC.answers = A().getA(catID)
-        
         questionVC.i = 0
         questionVC.correct = 0
         questionVC.selected = -1
+        
+        self.present(questionVC, animated: true, completion: nil)
         
     }
     
