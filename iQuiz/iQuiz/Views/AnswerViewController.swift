@@ -54,6 +54,18 @@ class AnswerViewController: UIViewController {
         }
     }
     
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            switch sender.direction {
+            case .left:
+                self.btnContinuePressed(self)
+            default:
+                break
+            }
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,15 +79,12 @@ class AnswerViewController: UIViewController {
         
         self.lblQuestion.text = self.question
         self.lblAnswer.text = self.answer
+        
+        // Adding swipes
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        leftSwipe.direction = .left
+        self.view.addGestureRecognizer(leftSwipe)
+        
     }
-    
-
-    //            let questionVC = self.storyboard?.instantiateViewController(withIdentifier: "question") as! QuestionViewController
-    //
-    //            questionVC.questions = self.questions
-    //            questionVC.answers = self.answers
-    //            questionVC.i = self.i + 1
-    //            questionVC.correct = self.correct
-    //            questionVC.selected = -1
 
 }

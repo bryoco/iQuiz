@@ -21,6 +21,19 @@ class FinishViewController: UIViewController {
         self.present(master!, animated: true, completion: nil)
     }
     
+    // Swipe handler
+    @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
+        if sender.state == .ended {
+            switch sender.direction {
+            case .right:
+                self.btnRestartPressed(self)
+            default:
+                break
+            }
+            
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,5 +51,9 @@ class FinishViewController: UIViewController {
         }
         
         self.lblStats.text = "Out of \(String(describing: self.numQuestions!)), you got \(String(describing: self.correct!)) right."
+        
+        // Adding swipes
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        self.view.addGestureRecognizer(rightSwipe)
     }
 }
