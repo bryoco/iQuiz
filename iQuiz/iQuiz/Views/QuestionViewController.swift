@@ -70,33 +70,34 @@ class QuestionViewController: UIViewController {
     @IBAction func btnChoice1Pressed(_ sender: Any) {
         self.selected = 0
         self.btnChoice1.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.btnChoice2.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice3.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice4.setTitleColor(UIColor.lightGray, for: .normal)
+        self.resetButtons(self.selected)
     }
     
     @IBAction func btnChoice2Pressed(_ sender: Any) {
         self.selected = 1
         self.btnChoice2.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.btnChoice1.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice3.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice4.setTitleColor(UIColor.lightGray, for: .normal)
+        self.resetButtons(self.selected)
     }
     
     @IBAction func btnChoice3Pressed(_ sender: Any) {
         self.selected = 2
         self.btnChoice3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.btnChoice1.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice2.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice4.setTitleColor(UIColor.lightGray, for: .normal)
+        self.resetButtons(self.selected)
     }
     
     @IBAction func btnChoice4Pressed(_ sender: Any) {
         self.selected = 3
         self.btnChoice4.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.btnChoice1.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice2.setTitleColor(UIColor.lightGray, for: .normal)
-        self.btnChoice3.setTitleColor(UIColor.lightGray, for: .normal)
+        self.resetButtons(self.selected)
+    }
+    
+    func resetButtons(_ n: Int) {
+        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
+        for i in 0..<btns.count {
+            if n != i {
+                btns[i]?.setTitleColor(UIColor.lightGray, for: .normal)
+            }
+        }
     }
     
     // Swipe handler
@@ -110,7 +111,6 @@ class QuestionViewController: UIViewController {
             default:
                 break
             }
-            
         }
     }
     
@@ -141,6 +141,7 @@ class QuestionViewController: UIViewController {
         self.view.addGestureRecognizer(leftSwipe)
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
+        rightSwipe.direction = .right               // just to be safe
         self.view.addGestureRecognizer(rightSwipe)
         
         // Filling question
