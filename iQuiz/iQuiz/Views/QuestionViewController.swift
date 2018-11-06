@@ -22,7 +22,7 @@ class QuestionViewController: UIViewController {
     var questions: [String]?
     var answers: [[String]]?
     
-    var i: Int!     // current no. of question
+    var i: Int! // current no. of question
     var correct: Int!
     var selected: Int!
     var isCorrect: Bool! = false
@@ -93,7 +93,6 @@ class QuestionViewController: UIViewController {
     }
     
     func resetButtons() {
-//        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
         let btns = [self.btn1, self.btn2, self.btn3, self.btn4]
         for btn in btns as [UIButton] {
             btn.setTitleColor(UIColor.lightGray, for: .normal)
@@ -114,7 +113,6 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    // TODO: randomize questions
     // on viewDidLoad():
     // -> generate 4 buttons
     // -> bind them to btn funcs
@@ -146,7 +144,7 @@ class QuestionViewController: UIViewController {
         self.view.addGestureRecognizer(leftSwipe)
         
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
-        rightSwipe.direction = .right               // just to be safe
+        rightSwipe.direction = .right // just to be safe
         self.view.addGestureRecognizer(rightSwipe)
         
         // Filling question
