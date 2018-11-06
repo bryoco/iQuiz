@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Edl-hU-Aso">
-                                <rect key="frame" x="186.33333333333334" y="50" width="41.666666666666657" height="30"/>
+                                <rect key="frame" x="186" y="50" width="42" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TJ2-N3-4yF"/>
                                 </constraints>
@@ -134,74 +134,29 @@
                                     <action selector="btnContinue:" destination="Pih-m3-oTx" eventType="touchUpInside" id="0oU-si-CWt"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Qv6-VZ-EMJ">
-                                <rect key="frame" x="184" y="273.66666666666669" width="46" height="189"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVG-lB-Dwx">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="btnChoice1Pressed:" destination="Pih-m3-oTx" eventType="touchUpInside" id="AUO-Uy-ShH"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inh-LU-6qR">
-                                        <rect key="frame" x="0.0" y="53" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="btnChoice2Pressed:" destination="Pih-m3-oTx" eventType="touchUpInside" id="gZs-hk-L9e"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xem-yE-KYS">
-                                        <rect key="frame" x="0.0" y="106" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="btnChoice3Pressed:" destination="Pih-m3-oTx" eventType="touchUpInside" id="Czu-sN-Ebq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8V-xA-YrZ">
-                                        <rect key="frame" x="0.0" y="159" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="btnChoice4Pressed:" destination="Pih-m3-oTx" eventType="touchUpInside" id="vOC-pT-Igm"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Qv6-VZ-EMJ">
+                                <rect key="frame" x="132" y="273" width="150" height="190"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="Qv6-VZ-EMJ" firstAttribute="centerY" secondItem="n1u-o5-Ptq" secondAttribute="centerY" id="1fn-2R-jxM"/>
+                            <constraint firstItem="xqj-53-BAH" firstAttribute="bottom" secondItem="Qv6-VZ-EMJ" secondAttribute="bottom" constant="273" id="1Mg-jm-yUe"/>
                             <constraint firstItem="txW-lu-S6H" firstAttribute="leading" secondItem="xqj-53-BAH" secondAttribute="leading" constant="30" id="5t0-5Z-PEL"/>
                             <constraint firstItem="xqj-53-BAH" firstAttribute="bottom" secondItem="txW-lu-S6H" secondAttribute="bottom" constant="30" id="SuD-dt-mK6"/>
                             <constraint firstItem="xqj-53-BAH" firstAttribute="trailing" secondItem="rb5-t1-8nd" secondAttribute="trailing" constant="30" id="UiD-h9-shx"/>
                             <constraint firstItem="xqj-53-BAH" firstAttribute="bottom" secondItem="rb5-t1-8nd" secondAttribute="bottom" constant="30" id="UlF-bN-e0N"/>
                             <constraint firstItem="Edl-hU-Aso" firstAttribute="top" secondItem="xqj-53-BAH" secondAttribute="top" constant="30" id="dFo-gZ-VT7"/>
+                            <constraint firstItem="Qv6-VZ-EMJ" firstAttribute="centerY" secondItem="n1u-o5-Ptq" secondAttribute="centerY" id="j3u-tR-ZN6"/>
                             <constraint firstItem="Edl-hU-Aso" firstAttribute="centerX" secondItem="n1u-o5-Ptq" secondAttribute="centerX" id="kEf-8L-0XP"/>
-                            <constraint firstItem="Qv6-VZ-EMJ" firstAttribute="centerX" secondItem="n1u-o5-Ptq" secondAttribute="centerX" id="lty-8e-vOC"/>
                             <constraint firstItem="rb5-t1-8nd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="txW-lu-S6H" secondAttribute="trailing" constant="8" symbolic="YES" id="o4F-ij-wBe"/>
+                            <constraint firstItem="Qv6-VZ-EMJ" firstAttribute="centerX" secondItem="n1u-o5-Ptq" secondAttribute="centerX" id="tOG-I3-pHG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xqj-53-BAH"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="1fn-2R-jxM"/>
-                                <exclude reference="lty-8e-vOC"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="constraints">
-                                <include reference="1fn-2R-jxM"/>
-                                <include reference="lty-8e-vOC"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="btnChoice1" destination="aVG-lB-Dwx" id="ILY-s6-FPo"/>
-                        <outlet property="btnChoice2" destination="inh-LU-6qR" id="Q9Q-Ke-TXV"/>
-                        <outlet property="btnChoice3" destination="xem-yE-KYS" id="Nby-BJ-QJ2"/>
-                        <outlet property="btnChoice4" destination="d8V-xA-YrZ" id="bHR-DS-5HS"/>
+                        <outlet property="btnsStackView" destination="Qv6-VZ-EMJ" id="H3i-mj-AMw"/>
                         <outlet property="lblQuestion" destination="Edl-hU-Aso" id="DYO-MP-HGd"/>
-                        <outletCollection property="btnsStackView" destination="Qv6-VZ-EMJ" collectionClass="NSMutableArray" id="8zZ-PK-Q4m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Di8-SX-08N" userLabel="First Responder" sceneMemberID="firstResponder"/>

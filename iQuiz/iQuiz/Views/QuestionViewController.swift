@@ -12,18 +12,12 @@ class QuestionViewController: UIViewController {
 
     @IBOutlet weak var lblQuestion: UILabel!
     
-    // TODO: to remove
-    @IBOutlet weak var btnChoice1: UIButton!
-    @IBOutlet weak var btnChoice2: UIButton!
-    @IBOutlet weak var btnChoice3: UIButton!
-    @IBOutlet weak var btnChoice4: UIButton!
-    
     // Create buttons
-    let btn1 = UIButton(type: .infoLight)
-    let btn2 = UIButton(type: .infoLight)
-    let btn3 = UIButton(type: .infoLight)
-    let btn4 = UIButton(type: .infoLight)
-    @IBOutlet var btnsStackView: [UIStackView]!
+    let btn1 = UIButton(type: .roundedRect)
+    let btn2 = UIButton(type: .roundedRect)
+    let btn3 = UIButton(type: .roundedRect)
+    let btn4 = UIButton(type: .roundedRect)
+    @IBOutlet weak var btnsStackView: UIStackView!
     
     var questions: [String]?
     var answers: [[String]]?
@@ -186,7 +180,7 @@ class QuestionViewController: UIViewController {
         self.lblQuestion.text = questions![i]
         
         // Filling answers
-        let btns = [btn1, btn2, btn3, btn4]
+        var btns = [btn1, btn2, btn3, btn4]
         var n = 0
         for btn in btns as [UIButton] {
             btn.setTitle(answers![i][n], for: .normal)
@@ -199,12 +193,11 @@ class QuestionViewController: UIViewController {
         btn3.addTarget(self, action: #selector(btn3Pressed), for: .touchUpInside)
         btn4.addTarget(self, action: #selector(btn4Pressed), for: .touchUpInside)
         
-        var btnsCount = btns.count
-        
+        // Injecting buttons
         while btns.count != 0 {
-            let i = arc4random_uniform(UInt32(btnsCount)) + 0
-//            self.btnsStackView.shuffle() WHAT??????
-            
+            let i = arc4random_uniform(UInt32(btns.count)) + 0
+            let tmp: UIButton = btns.remove(at: Int(i))
+            self.btnsStackView.addArrangedSubview(tmp)
         }
         
 //        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
