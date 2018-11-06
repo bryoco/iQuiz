@@ -94,35 +94,33 @@ class QuestionViewController: UIViewController {
     
     @objc func btn1Pressed() {
         self.selected = 0
+        self.resetButtons()
         self.btn1.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.resetButtons(self.selected)
     }
 
     @objc func btn2Pressed() {
         self.selected = 1
+        self.resetButtons()
         self.btn2.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.resetButtons(self.selected)
     }
     
     @objc func btn3Pressed() {
         self.selected = 2
+        self.resetButtons()
         self.btn3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.resetButtons(self.selected)
     }
     
     @objc func btn4Pressed() {
         self.selected = 3
-        self.btn3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-        self.resetButtons(self.selected)
+        self.resetButtons()
+        self.btn4.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
     }
     
-    func resetButtons(_ n: Int) {
+    func resetButtons() {
 //        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
         let btns = [self.btn1, self.btn2, self.btn3, self.btn4]
-        for i in 0..<btns.count {
-            if n != i {
-                btns[i].setTitleColor(UIColor.lightGray, for: .normal)
-            }
+        for btn in btns as [UIButton] {
+            btn.setTitleColor(UIColor.lightGray, for: .normal)
         }
     }
     
