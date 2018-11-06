@@ -11,16 +11,24 @@ import UIKit
 class QuestionViewController: UIViewController {
 
     @IBOutlet weak var lblQuestion: UILabel!
+    
+    // TODO: to remove
     @IBOutlet weak var btnChoice1: UIButton!
     @IBOutlet weak var btnChoice2: UIButton!
     @IBOutlet weak var btnChoice3: UIButton!
     @IBOutlet weak var btnChoice4: UIButton!
-    @IBOutlet var btnsChoice: [UIStackView]!
+    
+    // Create buttons
+    let btn1 = UIButton(type: .infoLight)
+    let btn2 = UIButton(type: .infoLight)
+    let btn3 = UIButton(type: .infoLight)
+    let btn4 = UIButton(type: .infoLight)
+    @IBOutlet var btnsStackView: [UIStackView]!
     
     var questions: [String]?
     var answers: [[String]]?
     
-    var i: Int!
+    var i: Int!     // current no. of question
     var correct: Int!
     var selected: Int!
     var isCorrect: Bool! = false
@@ -66,36 +74,60 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    // TODO: refactor this
-    @IBAction func btnChoice1Pressed(_ sender: Any) {
+//    @IBAction func btnChoice1Pressed(_ sender: Any) {
+//        self.selected = 0
+//        self.btnChoice1.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+//        self.resetButtons(self.selected)
+//    }
+//
+//    @IBAction func btnChoice2Pressed(_ sender: Any) {
+//        self.selected = 1
+//        self.btnChoice2.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+//        self.resetButtons(self.selected)
+//    }
+//
+//    @IBAction func btnChoice3Pressed(_ sender: Any) {
+//        self.selected = 2
+//        self.btnChoice3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+//        self.resetButtons(self.selected)
+//    }
+//
+//    @IBAction func btnChoice4Pressed(_ sender: Any) {
+//        self.selected = 3
+//        self.btnChoice4.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+//        self.resetButtons(self.selected)
+//    }
+    
+    @objc func btn1Pressed() {
         self.selected = 0
-        self.btnChoice1.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+        self.btn1.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
         self.resetButtons(self.selected)
     }
-    
-    @IBAction func btnChoice2Pressed(_ sender: Any) {
+
+    @objc func btn2Pressed() {
         self.selected = 1
-        self.btnChoice2.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+        self.btn2.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
         self.resetButtons(self.selected)
     }
     
-    @IBAction func btnChoice3Pressed(_ sender: Any) {
+    @objc func btn3Pressed() {
         self.selected = 2
-        self.btnChoice3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+        self.btn3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
         self.resetButtons(self.selected)
     }
     
-    @IBAction func btnChoice4Pressed(_ sender: Any) {
+    @objc func btn4Pressed() {
         self.selected = 3
-        self.btnChoice4.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
+        self.btn3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
         self.resetButtons(self.selected)
     }
     
     func resetButtons(_ n: Int) {
-        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
+//        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
+        let btns = [self.btn1, self.btn2, self.btn3, self.btn4]
         for i in 0..<btns.count {
             if n != i {
-                btns[i]?.setTitleColor(UIColor.lightGray, for: .normal)
+                btns[i].setTitleColor(UIColor.lightGray, for: .normal)
             }
         }
     }
@@ -115,6 +147,12 @@ class QuestionViewController: UIViewController {
     }
     
     // TODO: randomize questions
+    
+    // on viewDidLoad():
+    // -> generate 4 buttons
+    // -> bind them to btn funcs
+    // -> put them in an array and randomize the array
+    // -> inject into btnStackView
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -148,11 +186,32 @@ class QuestionViewController: UIViewController {
         self.lblQuestion.text = questions![i]
         
         // Filling answers
-        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
+        let btns = [btn1, btn2, btn3, btn4]
         var n = 0
-        for btn in btns {
-            btn!.setTitle(answers![i][n], for: .normal)
+        for btn in btns as [UIButton] {
+            btn.setTitle(answers![i][n], for: .normal)
             n += 1
         }
+        
+        // Binding actions
+        btn1.addTarget(self, action: #selector(btn1Pressed), for: .touchUpInside)
+        btn2.addTarget(self, action: #selector(btn2Pressed), for: .touchUpInside)
+        btn3.addTarget(self, action: #selector(btn3Pressed), for: .touchUpInside)
+        btn4.addTarget(self, action: #selector(btn4Pressed), for: .touchUpInside)
+        
+        var btnsCount = btns.count
+        
+        while btns.count != 0 {
+            let i = arc4random_uniform(UInt32(btnsCount)) + 0
+//            self.btnsStackView.shuffle() WHAT??????
+            
+        }
+        
+//        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
+//        var n = 0
+//        for btn in btns {
+//            btn!.setTitle(answers![i][n], for: .normal)
+//            n += 1
+//        }
     }
 }

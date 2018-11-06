@@ -201,7 +201,7 @@
                         <outlet property="btnChoice3" destination="xem-yE-KYS" id="Nby-BJ-QJ2"/>
                         <outlet property="btnChoice4" destination="d8V-xA-YrZ" id="bHR-DS-5HS"/>
                         <outlet property="lblQuestion" destination="Edl-hU-Aso" id="DYO-MP-HGd"/>
-                        <outletCollection property="btnsChoice" destination="Qv6-VZ-EMJ" collectionClass="NSMutableArray" id="ZmK-kK-Gi3"/>
+                        <outletCollection property="btnsStackView" destination="Qv6-VZ-EMJ" collectionClass="NSMutableArray" id="8zZ-PK-Q4m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Di8-SX-08N" userLabel="First Responder" sceneMemberID="firstResponder"/>
