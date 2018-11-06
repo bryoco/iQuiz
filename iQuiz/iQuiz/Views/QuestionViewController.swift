@@ -68,30 +68,6 @@ class QuestionViewController: UIViewController {
         }
     }
     
-//    @IBAction func btnChoice1Pressed(_ sender: Any) {
-//        self.selected = 0
-//        self.btnChoice1.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-//        self.resetButtons(self.selected)
-//    }
-//
-//    @IBAction func btnChoice2Pressed(_ sender: Any) {
-//        self.selected = 1
-//        self.btnChoice2.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-//        self.resetButtons(self.selected)
-//    }
-//
-//    @IBAction func btnChoice3Pressed(_ sender: Any) {
-//        self.selected = 2
-//        self.btnChoice3.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-//        self.resetButtons(self.selected)
-//    }
-//
-//    @IBAction func btnChoice4Pressed(_ sender: Any) {
-//        self.selected = 3
-//        self.btnChoice4.setTitleColor(UIColor(red: 116/255, green: 91/255, blue: 255/255, alpha: 1.0), for: .normal)
-//        self.resetButtons(self.selected)
-//    }
-    
     @objc func btn1Pressed() {
         self.selected = 0
         self.resetButtons()
@@ -139,7 +115,6 @@ class QuestionViewController: UIViewController {
     }
     
     // TODO: randomize questions
-    
     // on viewDidLoad():
     // -> generate 4 buttons
     // -> bind them to btn funcs
@@ -197,12 +172,5 @@ class QuestionViewController: UIViewController {
             let tmp: UIButton = btns.remove(at: Int(i))
             self.btnsStackView.addArrangedSubview(tmp)
         }
-        
-//        let btns = [self.btnChoice1, self.btnChoice2, self.btnChoice3, self.btnChoice4]
-//        var n = 0
-//        for btn in btns {
-//            btn!.setTitle(answers![i][n], for: .normal)
-//            n += 1
-//        }
     }
 }
