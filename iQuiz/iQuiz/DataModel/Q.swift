@@ -21,7 +21,8 @@ class Q {
         
         // JAPAN
         ["How do you say \"Hello\" in Japanese?",
-         "Which track is offered in the department?"]]
+         "Which track is offered in the department?"]
+    ]
     
     
     func getQ(_ catID : Int) -> [String]? {
