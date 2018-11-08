@@ -11,9 +11,9 @@ import UIKit
 
 class DataSource : NSObject, UITableViewDataSource {
     
-    let data : Data
+    let data : Cat
     
-    init(data : Data) {
+    init(data : Cat) {
         self.data = data
     }
     

@@ -13,10 +13,17 @@
     <session id="-2134448387">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+<<<<<<< HEAD
           <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.opened" value="5" />
+=======
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.7" value="3" />
+          <entry key="project.opened" value="4" />
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -48,7 +55,11 @@
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
+<<<<<<< HEAD
           <entry key="git.branch.checkout.local" value="3" />
+=======
+          <entry key="git.branch.checkout.local" value="1" />
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
           <entry key="git.branch.compare" value="1" />
         </counts>
       </usages-collector>
@@ -59,11 +70,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/iQuiz/Views/MasterViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="378">
               <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding>
                 <element signature="e#136#148#0" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="189">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
             </state>
           </provider>
         </entry>
@@ -116,6 +132,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -128,7 +148,10 @@
         </subPane>
       </pane>
       <pane id="Cidr.FilesView" />
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -176,15 +199,26 @@
       <workItem from="1541639419956" duration="19000" />
       <workItem from="1541639462573" duration="2003000" />
       <workItem from="1541642541619" duration="343000" />
+<<<<<<< HEAD
       <workItem from="1541643123846" duration="434000" />
+=======
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="5236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+=======
+    <option name="totallyTimeSpent" value="4802000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
+    <editor active="true" />
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25274727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -273,11 +307,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iQuiz/Views/MasterViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="378">
           <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding>
             <element signature="e#136#148#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="189">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+>>>>>>> e1f90b39e245674d02a071794e6659cb42f2749c
         </state>
       </provider>
     </entry>

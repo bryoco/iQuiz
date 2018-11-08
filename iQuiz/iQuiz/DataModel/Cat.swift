@@ -1,5 +1,5 @@
 //
-//  Data.swift
+//  Cat.swift
 //  iQuiz
 //
 //  Created by Rico Wang on 10/29/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Data {
+class Cat {
     
     let cat : [String] = ["Informatics", "Computer Science and Engineering", "Japanese"]
     
