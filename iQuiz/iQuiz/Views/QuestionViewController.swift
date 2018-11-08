@@ -17,6 +17,7 @@ class QuestionViewController: UIViewController {
     let btn2 = UIButton(type: .roundedRect)
     let btn3 = UIButton(type: .roundedRect)
     let btn4 = UIButton(type: .roundedRect)
+    
     @IBOutlet weak var btnsStackView: UIStackView!
     
     var questions: [String]?

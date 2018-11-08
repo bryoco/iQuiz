@@ -16,7 +16,7 @@ class DataRepository {
         return theInstance
     }
     
-    func getData() -> Data? {
-        return Data()
+    func getData() -> Cat? {
+        return Cat()
     }
 }

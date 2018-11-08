@@ -28,7 +28,7 @@ class AnswerViewController: UIViewController {
     @IBAction func btnContinuePressed(_ sender: Any) {
         
         let j = i! + 0
-        
+
         if j >= questions!.count {
             
             let finishVC = self.storyboard?.instantiateViewController(withIdentifier: "finish") as! FinishViewController
