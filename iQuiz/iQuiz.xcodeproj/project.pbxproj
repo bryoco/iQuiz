@@ -14,7 +14,7 @@
 		A46D053A2186706C00DEA576 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A46D05382186706C00DEA576 /* LaunchScreen.storyboard */; };
 		A46D05452186706C00DEA576 /* iQuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D05442186706C00DEA576 /* iQuizTests.swift */; };
 		A46D05502186706C00DEA576 /* iQuizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46D054F2186706C00DEA576 /* iQuizUITests.swift */; };
-		A4E96AE62187AD8C0075B669 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E96AE52187AD8C0075B669 /* Data.swift */; };
+		A4E96AE62187AD8C0075B669 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E96AE52187AD8C0075B669 /* Cat.swift */; };
 		A4E96AE82187AE0A0075B669 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E96AE72187AE0A0075B669 /* DataRepository.swift */; };
 		A4E96AEA2187AE2A0075B669 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E96AE92187AE2A0075B669 /* DataSource.swift */; };
 		A4E96B2821880DB20075B669 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E96B2721880DB20075B669 /* QuestionViewController.swift */; };
@@ -55,7 +55,7 @@
 		A46D054B2186706C00DEA576 /* iQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46D054F2186706C00DEA576 /* iQuizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuizUITests.swift; sourceTree = "<group>"; };
 		A46D05512186706C00DEA576 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4E96AE52187AD8C0075B669 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		A4E96AE52187AD8C0075B669 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		A4E96AE72187AE0A0075B669 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		A4E96AE92187AE2A0075B669 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		A4E96B2721880DB20075B669 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		A4E96AEC2187AEE50075B669 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				A4E96AE52187AD8C0075B669 /* Data.swift */,
+				A4E96AE52187AD8C0075B669 /* Cat.swift */,
 				A4E96AE72187AE0A0075B669 /* DataRepository.swift */,
 				A4E96AE92187AE2A0075B669 /* DataSource.swift */,
 				A4E96B36218815F10075B669 /* Q.swift */,
@@ -301,7 +301,7 @@
 				A4E96AE82187AE0A0075B669 /* DataRepository.swift in Sources */,
 				A4E96B2821880DB20075B669 /* QuestionViewController.swift in Sources */,
 				A4E96B39218815F80075B669 /* A.swift in Sources */,
-				A4E96AE62187AD8C0075B669 /* Data.swift in Sources */,
+				A4E96AE62187AD8C0075B669 /* Cat.swift in Sources */,
 				A4E96B2C21880DC90075B669 /* FinishViewController.swift in Sources */,
 				A4E96B37218815F10075B669 /* Q.swift in Sources */,
 				A4E96AEA2187AE2A0075B669 /* DataSource.swift in Sources */,

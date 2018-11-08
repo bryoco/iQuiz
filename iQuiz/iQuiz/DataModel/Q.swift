@@ -25,18 +25,6 @@ class Q {
     
     
     func getQ(_ catID : Int) -> [String]? {
-<<<<<<< Updated upstream
-        if catID == 0 {
-            return self.questions[0]
-        } else if catID == 1 {
-            return self.questions[1]
-        } else if catID == 2 {
-            return self.questions[2]
-        } else {
-            return nil          // catches null pointer
-        }
-=======
         return self.questions[catID]
->>>>>>> Stashed changes
     }
 }
