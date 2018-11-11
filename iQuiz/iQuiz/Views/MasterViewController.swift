@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Alamofire
+
 class MasterViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
