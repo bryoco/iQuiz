@@ -18,11 +18,11 @@ class MasterViewController: UIViewController, UITableViewDelegate {
     let dataSrc = DataSource(data: DataRepository.instance().getData()!)
     
     var useCustomizedData: Bool = false
-    var q = Q(questions: nil)
-    var a = A(answers: nil)
-    var cat = Cat(cat: nil, catDesc: nil, catImg: nil)
-    var defaultURL = "https://tednewardsandbox.site44.com/questions.json"
+    var q: Q = Q(questions: nil)
+    var a: A = A(answers: nil)
+    var cat: Cat = Cat(cat: nil, catDesc: nil, catImg: nil)
     
+    var defaultURL = "https://tednewardsandbox.site44.com/questions.json"
 
     
     // UI
@@ -129,6 +129,7 @@ class MasterViewController: UIViewController, UITableViewDelegate {
                 for question in questionArray {
                     
                     var questionText: [String] = []
+                    var answerList: [[String]] = []
                     
                     for q in question {
                         
@@ -141,7 +142,7 @@ class MasterViewController: UIViewController, UITableViewDelegate {
                         let correctAnswerInt: Int? = Int(correctAnswer) ?? -1
                         let tmpCorrectAnswer = ans.remove(at: correctAnswerInt! - 1)
                         ans.insert(tmpCorrectAnswer, at: 0)
-                        answers.append([ans])
+                        answerList.append(ans)
                         
                         // Qs
                         guard let qt = arrayDict["text"] as? String else { return }
@@ -149,14 +150,15 @@ class MasterViewController: UIViewController, UITableViewDelegate {
                         
                     }
                     
+                    answers.append(answerList)
                     questionsText.append(questionText)
                 }
                 
                 // print here
-//                print("cat \(cat)")
-//                print("catDesc \(catDesc)")
-//                print("answers \(answers)")
-//                print("questionsText \(questionsText)")
+                print("cat \(cat)")
+                print("catDesc \(catDesc)")
+                print("answers \(answers)")
+                print("questionsText \(questionsText)")
                 
                 // Reconstruct data
                 self.q = Q(questions: questionsText)
@@ -171,18 +173,16 @@ class MasterViewController: UIViewController, UITableViewDelegate {
         task.resume()
     }
     
-    
-    
     // OTHER
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if !useCustomizedData {
-            self.tableView.dataSource = self.dataSrc
-            self.tableView.delegate = self
-        } else {
-            getJSON(self.defaultURL)
+        if useCustomizedData {
+            self.getJSON(defaultURL)
         }
+        
+        self.tableView.dataSource = self.dataSrc
+        self.tableView.delegate = self
     }
 }
 

@@ -122,7 +122,6 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: properly check for inputs
         if answers == nil {
             assert(false, "answer is nil")
         }
