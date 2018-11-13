@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DataRepository {
 
@@ -16,7 +17,7 @@ class DataRepository {
         return theInstance
     }
     
-    func getData() -> Cat? {
-        return Cat(cat: nil, catDesc: nil, catImg: nil)
+    func getData(_ cat: [String]?, _ catDesc: [String]?, _ catImg: [UIImage]?) -> Cat? {
+        return Cat(cat: cat ?? nil, catDesc: catDesc ?? nil, catImg: catImg ?? nil)
     }
 }

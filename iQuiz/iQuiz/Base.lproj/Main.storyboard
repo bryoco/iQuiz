@@ -91,6 +91,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="btnSettings" destination="ytq-x4-AE3" id="bb4-Qf-JYe"/>
                         <outlet property="tableView" destination="ls5-Pk-giW" id="EYa-cI-J5K"/>
                         <outletCollection property="tableView" destination="ls5-Pk-giW" collectionClass="NSMutableArray" id="Yqj-Af-Ybb"/>
                     </connections>
