@@ -8,10 +8,12 @@
 
 import Foundation
 
-class A {
+struct A {
     
-    let answers : [[[String]]] = [
-        
+    var answers : [[[String]]]?
+    
+    init(answers: [[[String]]]?) {
+        self.answers = answers ?? [
             // INFO
             [["Anind Dey", "Joel Ross", "Ted Neward", "Dowell Eugenio"],
              ["Information School", "Intellectual School", "Intelligence School", "Infrastructure School"]],
@@ -23,17 +25,9 @@ class A {
             // JAPAN
             [["Konichiwa", "Nihao", "Annyeonghaseyo", "Salve"],
              ["Linguistics", "Weeabooism", "Culture", "Nihilism"]]]
+    }
     
     func getA(_ catID : Int) -> [[String]]? {
-        
-        if catID == 0 {
-            return self.answers[0]
-        } else if catID == 1 {
-            return self.answers[1]
-        } else if catID == 2 {
-            return self.answers[2]
-        } else {
-            return nil
-        }
+        return self.answers?[catID] ?? [[]]
     }
 }

@@ -17,6 +17,6 @@ class DataRepository {
     }
     
     func getData() -> Cat? {
-        return Cat()
+        return Cat(cat: nil, catDesc: nil, catImg: nil)
     }
 }

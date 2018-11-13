@@ -7,19 +7,20 @@
 //
 
 import UIKit
-import Alamofire
 
 class AnswerViewController: UIViewController {
+
+
 
     @IBOutlet weak var lblQuestion: UILabel!
     @IBOutlet weak var lblAnswer: UILabel!
     @IBOutlet weak var lblIsCorrect: UILabel!
-    
+
     // Data for this VC
     var question: String!
     var answer: String!
     var isCorrect: Bool!
-    
+
     // Data carried over to next VC
     var questions: [String]!
     var answers: [[String]]!
@@ -49,7 +50,7 @@ class AnswerViewController: UIViewController {
             questionVC.i = self.i
             questionVC.correct = self.correct
             questionVC.selected = -1
-            
+
             self.present(questionVC, animated: true, completion: nil)
             
         }
@@ -63,7 +64,6 @@ class AnswerViewController: UIViewController {
             default:
                 break
             }
-            
         }
     }
     
@@ -77,10 +77,10 @@ class AnswerViewController: UIViewController {
             self.lblIsCorrect.text = "Wrong!"
             self.lblIsCorrect.textColor = UIColor.red
         }
-        
+
         self.lblQuestion.text = self.question
         self.lblAnswer.text = self.answer
-        
+
         // Adding swipes
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(sender:)))
         leftSwipe.direction = .left
