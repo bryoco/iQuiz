@@ -6,7 +6,7 @@
 //  Copyright © 2018 Rico Wang. All rights reserved.
 //
 
-// TODO: when using customized data, MVC does not preserve downloaded data
+// TODO: when using customized data, MasterVC does not preserve downloaded data
 // write to disk and then check if local data exists?
 
 // ✓ Download JSON
