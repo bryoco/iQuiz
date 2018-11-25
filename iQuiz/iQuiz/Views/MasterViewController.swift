@@ -93,6 +93,7 @@ class MasterViewController: UIViewController, UITableViewDelegate {
                 
             } else if textField.text != "" && textField.text != nil {
                 
+                self.usingJSON = true
                 url = textField.text!
                 
             }
