@@ -8,9 +8,10 @@
 
 // TODO: when using customized data, MasterVC does not preserve downloaded data
 // write to disk and then check if local data exists?
+// MARK: test
 
 // ✓ Download JSON
-// X Store the quiz data locally
+// ✓ Store the quiz data locally
 // ✓ Use local storage when offline
 // ✓ Check Now
 // ✓ Offline Notification
@@ -29,14 +30,12 @@ class MasterViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var btnSettings: UIBarButtonItem!
     
-    let metadata = Metadata.init() // <- TODO: sharing metadata between views.
-    
     var q: Q = Q(questions: nil)
     var a: A = A(answers: nil)
+    var usingJSON: Bool = false
 //    var cat: Cat = Cat(cat: nil, catDesc: nil, catImg: nil)
 
     var dataSrc = DataSource(data: DataRepository.instance().getData(nil, nil, nil)!)
-    var defaultURL = "https://tednewardsandbox.site44.com/questions.json"
 
     
     // UI
@@ -57,25 +56,48 @@ class MasterViewController: UIViewController, UITableViewDelegate {
     
     @IBAction func btnSettings(_ sender: Any) {
         
+        // Creating UIAlertController
         let alert = UIAlertController(title: "Settings", message: "Please enter your data URL", preferredStyle: .alert)
         
+        // Creating text field for JSON address
         var textField = UITextField()
-        
+        // Adding text field to UIAlert
         alert.addTextField(configurationHandler: {{ (theTextField : UITextField) in
             textField = theTextField
-            textField.placeholder = "https://localhost:80/data.json"
+            textField.placeholder = "https://localhost:8123/data.json"
             }}())
+        
+        // Debugging options
+        let debugSwitch = UISwitch(frame: CGRect(x: 10, y: 10, width: 0, height: 0))
+        func createSwitch() -> UISwitch {
+            debugSwitch.isOn = false
+            debugSwitch.setOn(false, animated: true)
+            debugSwitch.isEnabled = true
+            
+            return debugSwitch
+        }
+        
+        alert.view.addSubview(createSwitch())
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         
         let okAction = UIAlertAction(title: "Check Now", style: .default, handler: {
             (action : UIAlertAction) in
-            if textField.text != "" && textField.text != nil {
-
-                // TODO change this
-//                self.getJSON(textField.text!)
-                self.getJSON(self.defaultURL)
+            
+            // Toggling debugging URL
+            var url = ""
+            if debugSwitch.isOn {
+                
+                self.usingJSON = true
+                url = "https://tednewardsandbox.site44.com/questions.json"
+                
+            } else if textField.text != "" && textField.text != nil {
+                
+                url = textField.text!
+                
             }
+            
+            self.getJSON(url)
         })
         
         alert.addAction(cancelAction)
@@ -90,19 +112,24 @@ class MasterViewController: UIViewController, UITableViewDelegate {
     func getJSON(_ url: String) {
         
         guard let url = URL(string: url) else {
-            print("bad URL")
+            
+            let alert = UIAlertController(title: "Error", message: "Invalid URL", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+
             return
         }
-        
-        print("setting useCustomizedData")
-        
-        self.metadata.setUseCustomizedData(true)
         
         DispatchQueue.global().async {
         
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
 
                 guard let data = data, error == nil else {
+                    
+                    let alert = UIAlertController(title: "Error", message: error?.localizedDescription ?? "Unknown error", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                    
                     print(error?.localizedDescription ?? "Download failed")
                     return
                 }
@@ -155,6 +182,7 @@ class MasterViewController: UIViewController, UITableViewDelegate {
                             // As
                             guard var ans = arrayDict["answers"]! as? [String] else { return }
                             guard let correctAnswer = arrayDict["answer"] as? String else { return }
+                            
                             // Swapping positions
                             let correctAnswerInt: Int? = Int(correctAnswer) ?? -1
                             let tmpCorrectAnswer = ans.remove(at: correctAnswerInt! - 1)
@@ -171,18 +199,17 @@ class MasterViewController: UIViewController, UITableViewDelegate {
                         questionsText.append(questionText)
                     }
                     
-                    // print here
-    //                print("cat \(cat)")
-    //                print("catDesc \(catDesc)")
-    //                print("answers \(answers)")
-    //                print("questionsText \(questionsText)")
-                    
                     // Reconstruct data
                     self.q = Q(questions: questionsText)
                     self.a = A(answers: answers)
                     
                     // Refresh current tableview
-                    self.dataSrc = DataSource(data: DataRepository.instance().getData(cat, catDesc, nil)!)
+                    if self.usingJSON {
+                        let imgs: [UIImage] = [UIImage(named: "Science")!, UIImage(named: "Marvel")!, UIImage(named: "Math")!]
+                        self.dataSrc = DataSource(data: DataRepository.instance().getData(cat, catDesc, imgs)!)
+                    } else {
+                        self.dataSrc = DataSource(data: DataRepository.instance().getData(cat, catDesc, nil)!)
+                    }
                     
                     DispatchQueue.main.async {
                         self.tableView.dataSource = self.dataSrc
@@ -190,7 +217,7 @@ class MasterViewController: UIViewController, UITableViewDelegate {
                     }
                     
                 } catch let e {
-                    print("Error", e)
+                    print("GETTING ERROR", e)
                 }
             }
             task.resume()
@@ -226,16 +253,8 @@ class MasterViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("did load triggered")
-        print(self.metadata.getUseCustomizedData())
-        
         self.tableView.dataSource = self.dataSrc
         self.tableView.delegate = self
-        
-        if self.metadata.getUseCustomizedData() {
-            print("use data triggered")
-            self.getJSON(defaultURL)
-        }
         
         if !isConnectedToNetwork() {
             self.btnSettings.isEnabled = false
