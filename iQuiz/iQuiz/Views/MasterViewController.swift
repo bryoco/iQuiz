@@ -72,12 +72,12 @@ class MasterViewController: UIViewController, UITableViewDelegate {
         func createSwitch() -> UISwitch {
             debugSwitch.isOn = false
             debugSwitch.setOn(false, animated: true)
-            debugSwitch.isEnabled = false
+            debugSwitch.isEnabled = true
             
             return debugSwitch
         }
         
-        alert.view.addSubview(createSwitch())
+//        alert.view.addSubview(createSwitch())
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         
