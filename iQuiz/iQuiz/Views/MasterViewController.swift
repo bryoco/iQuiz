@@ -72,7 +72,7 @@ class MasterViewController: UIViewController, UITableViewDelegate {
         func createSwitch() -> UISwitch {
             debugSwitch.isOn = false
             debugSwitch.setOn(false, animated: true)
-            debugSwitch.isEnabled = true
+            debugSwitch.isEnabled = false
             
             return debugSwitch
         }
